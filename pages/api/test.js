@@ -5,7 +5,8 @@ const fs = require('fs')
 export default function handler(req, res) {
   fs.readFile('public/image.png', (error, data) => {
     if (error) {
-      console.error(error)
+      console.error(error);
+      return 1;
     }
     res.writeHead(200, {
       'Content-Type': 'image/png'
