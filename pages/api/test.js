@@ -3,7 +3,12 @@
 const fs = require('fs')
 
 export default function handler(req, res) {
-  res.writeHead(200, {
-    'Content-Type': 'image/png'
-  }).write(fs.readFile('image.png'))
+  fs.readFile('image.png', (error, data) => {
+    if (error) {
+      console.error(error)
+    }
+    res.writeHead(200, {
+      'Content-Type': 'image/png'
+    }).write(data);
+  });
 }
