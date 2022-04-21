@@ -3,7 +3,7 @@
 const fs = require('fs')
 
 export default function handler(req, res) {
-  fs.readFile('image.png', (error, data) => {
+  fs.readFile('public/image.png', (error, data) => {
     if (error) {
       console.error(error)
     }
