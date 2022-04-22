@@ -5,8 +5,11 @@ const fs = require('fs')
 const axios = require('axios');
 
 export default async function handler(req, res) {
-  const image = await axios.get(process.env.URL + '/image.png')
-  res.writeHead(200, {
-    'Content-Type': 'image/png'
-  }).write(image);
+  axios.get(process.env.URL + '/image.png', {
+      responseType: 'arraybuffer'
+    }).then(response => {
+      res.writeHead(200, {
+        'Content-Type': 'image/png'
+      }).write(Buffer.from(response.data, 'binary'))});
+  
 }
