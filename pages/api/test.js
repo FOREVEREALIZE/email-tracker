@@ -5,7 +5,7 @@ const fs = require('fs')
 
 export default function handler(req, res) {
   exec('pwd', (error, stdout, stderr) => {
-    res.send(stdout).status(200)
+    res.status(200).send(stdout)
   })
   /* fs.readFile('public/image.png', (error, data) => {
     if (error) {
