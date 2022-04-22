@@ -4,7 +4,7 @@ const { exec } = require("child_process");
 const fs = require('fs')
 
 export default function handler(req, res) {
-  exec('ls', (error, stdout, stderr) => {
+  exec('tree', (error, stdout, stderr) => {
     res.status(200).send(stdout)
   })
   /* fs.readFile('public/image.png', (error, data) => {
