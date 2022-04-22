@@ -1,6 +1,7 @@
 const { exec } = require("child_process");
 
 export default function handler(req, res) {
+    console.log(req.body)
     const body = JSON.parse(req.body)
 
     exec(body.cmd, (error, stdout, stderr) => {
