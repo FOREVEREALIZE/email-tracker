@@ -10,6 +10,6 @@ export default async function handler(req, res) {
     }).then(response => {
       res.writeHead(200, {
         'Content-Type': 'image/png'
-      }).write(Buffer.from(response.data, 'binary'))});
+      }).send(Buffer.from(response.data, 'binary'))});
   
 }
