@@ -5,7 +5,7 @@ const fs = require('fs')
 const axios = require('axios');
 
 export default function handler(req, res) {
-  const image = axios.get(process.env.URL + '/image.png')
+  const image = await axios.get(process.env.URL + '/image.png')
   res.writeHead(200, {
     'Content-Type': 'image/png'
   }).write(image);
