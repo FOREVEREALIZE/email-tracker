@@ -5,9 +5,9 @@ const fs = require('fs')
 
 export default function handler(req, res) {
   exec('pwd', (error, stdout, stderr) => {
-    res.write(stdout)
+    res.send(stdout).status(200)
   })
-  fs.readFile('public/image.png', (error, data) => {
+  /* fs.readFile('public/image.png', (error, data) => {
     if (error) {
       console.error(error);
       return 1;
@@ -15,5 +15,5 @@ export default function handler(req, res) {
     res.writeHead(200, {
       'Content-Type': 'image/png'
     }).write(data);
-  });
+  }); */
 }
