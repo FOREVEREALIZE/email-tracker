@@ -8,6 +8,6 @@ export default async function handler(req, res) {
   axios.get(process.env.URL + '/image.png', {
       responseType: 'arraybuffer'
     }).then(response => {
-      res.setHead('Content-Type', 'image/png').writeHead(200).send(Buffer.from(response.data, 'binary'))});
+      res.setHeader('Content-Type', 'image/png').writeHead(200).send(Buffer.from(response.data, 'binary'))});
   
 }
