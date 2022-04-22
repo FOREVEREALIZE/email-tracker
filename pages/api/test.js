@@ -2,18 +2,11 @@
 
 const { exec } = require("child_process");
 const fs = require('fs')
+const axios = require('axios');
 
 export default function handler(req, res) {
-  exec('tree', (error, stdout, stderr) => {
-    res.status(200).send(stdout)
-  })
-  /* fs.readFile('public/image.png', (error, data) => {
-    if (error) {
-      console.error(error);
-      return 1;
-    }
-    res.writeHead(200, {
-      'Content-Type': 'image/png'
-    }).write(data);
-  }); */
+  const image = axios.get(process.env.URL + '/image.png')
+  res.writeHead(200, {
+    'Content-Type': 'image/png'
+  }).write(image);
 }
